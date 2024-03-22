@@ -19,7 +19,7 @@ public class Reservation {
     private List<Service> services;
     private double reservationPrice;
     private String workstage;
-    //   workStage (In Process, Finish, Canceled)
+    // workStage (In Process, Finish, Canceled)
 
     public Reservation(String reservationId, Customer customer, Employee employee, List<Service> services,
             String workstage) {
@@ -31,7 +31,12 @@ public class Reservation {
         this.workstage = workstage;
     };
 
-    private double calculateReservationPrice(){
-        return 0;
+    private double calculateReservationPrice() {
+        double totalPrice = 0;
+
+        for (Service service : services) {
+            totalPrice += service.getPrice();
+        }
+        return totalPrice;
     }
 }
