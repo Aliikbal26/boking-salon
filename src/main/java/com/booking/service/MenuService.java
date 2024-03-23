@@ -46,26 +46,30 @@ public class MenuService {
                                 break;
                             case 2:
                                 PrintService customer = new PrintService();
-                                customer.showAllCustomer(customers);
+                                customer.showAllCustomer(personList);
                                 // panggil fitur tampilkan semua customer
                                 break;
                             case 3:
                                 // panggil fitur tampilkan semua employee
                                 PrintService empleoyee = new PrintService();
-                                empleoyee.showAllEmployee(employees);
+                                empleoyee.showAllEmployee(personList);
                                 break;
                             case 4:
+
                                 // panggil fitur tampilkan history reservation + total keuntungan
                                 break;
                             case 0:
-                                backToSubMenu = false;
+                                backToSubMenu = true;
                         }
                     } while (!backToSubMenu);
                     break;
                 case 2:
+                    ReservationService.createReservation(reservationList, personList, serviceList, input);
+                    // ReservationService.createReservation(reservationList, customers, input);
                     // panggil fitur menambahkan reservation
                     break;
                 case 3:
+                    // ReservationService.editReservationWorkstage(reservationList, input);
                     // panggil fitur mengubah workstage menjadi finish/cancel
                     break;
                 case 0:
